@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Dashboard - Admin Watesprojo</title>
+        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
+        <link href="/css/styles.css" rel="stylesheet" type="text/css" />
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    </head>
+    <body class="sb-nav-fixed">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            <!-- Navbar Brand-->
+            <a class="navbar-brand ps-3 fw-bold" href="index.html">Watesprojo</a>
+            <!-- Sidebar Toggle-->
+            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+            <!-- Navbar-->
+            <ul class="navbar-nav ms-auto ms-auto me-0 me-lg-4">
+                <li class="nav-item dropdown">
+                    <a class="nav-link fs-5 fw-bold" href="#"aria-expanded="false"><i class="me-2 fas fa-user fa-fw"></i>Admin</a>
+                </li>
+            </ul>
+        </nav>
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <div class="nav">
+                            <div class="sb-sidenav-menu-heading">Home</div>
+                            <a class="nav-link" href="/home">
+                                <div class="sb-nav-link-icon"><i class="fas fa-home-alt"></i></div>
+                                Beranda
+                            </a>
+                            <div class="sb-sidenav-menu-heading">Kependudukan</div>
+                            <a class="nav-link" href="/ktp">
+                                <div class="sb-nav-link-icon"><i class="far fa-address-card"></i></div>
+                                Elektronik - KTP
+                            </a>
+                            <a class="nav-link" href="/kk">
+                                <div class="sb-nav-link-icon"><i class="far fa-file-alt"></i></div>
+                                Kartu Keluarga
+                            </a>
+                            <div class="sb-sidenav-menu-heading">Pengelolaan Web</div>
+                            <a class="nav-link" href="/masukan">
+                                <div class="sb-nav-link-icon"><i class="fas fa-vote-yea"></i></div>
+                                Masukan Warga
+                            </a>
+                            <a class="nav-link" href="/apbDesa">
+                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                                APB - Desa
+                            </a>
+                            <!-- <a class="nav-link" href="/kegiatan">
+                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                                Kegiatan
+                            </a> -->
+                        </div>
+                    </div>
+                    <div class="sb-sidenav-footer text-center">
+                        <a href="/logout" class="btn btn-danger btn-md text-white">Keluar <i class="fa fa-sign-out"></i></a>
+                    </div>
+                </nav>
+            </div>
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid px-4">
+                        <h1 class="mt-4">Data Masukan Warga</h1>
+                        <hr>
+                        <div class="card border-0 mb-4">
+                            <a class="btn btn-primary btn-md" href="#" role="button" data-bs-toggle="modal" data-bs-target="#addModal">
+                                <i class="fas fa-add"></i> Tambahkan Data Baru
+                            </a>
+                            <div class="card-body">
+                                <table id="datatablesSimple">
+                                    <thead>
+                                        <tr>
+                                            <th>Judul</th>
+                                            <th style="width: 35%;">Deskripsi</th>
+                                            <th>Nama Pelapor</th>
+                                            <th>Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Judul</th>
+                                            <th style="width: 35%;">Deskripsi</th>
+                                            <th>Nama Pelapor</th>
+                                            <th>Aksi</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        <tr>
+                                            <td>Kerusakan Jalan</td>
+                                            <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus aut enim consequatur quis iusto sequi facilis unde ad sint nemo.</td>
+                                            <td>Asep Amin</td>
+                                            <td>
+                                                <a class="btn btn-success btn-sm" href="#" role="button" data-bs-toggle="modal" data-bs-target="#showModal">
+                                                    <i class="fas fa-eye"></i>
+                                                </a>
+                                                <a class="btn btn-warning btn-sm" href="#" role="button" data-bs-toggle="modal" data-bs-target="#editModal">
+                                                    <i class="fas fa-edit"></i>
+                                                </a>
+                                                <a class="btn btn-danger btn-sm" href="#" role="button" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                                                    <i class="fas fa-trash"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Kerusakan Jalan</td>
+                                            <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus aut enim consequatur quis iusto sequi facilis unde ad sint nemo.</td>
+                                            <td>Asep Amin</td>
+                                            <td>
+                                                <a class="btn btn-success btn-sm" href="#" role="button" data-bs-toggle="modal" data-bs-target="#showModal">
+                                                    <i class="fas fa-eye"></i>
+                                                </a>
+                                                <a class="btn btn-warning btn-sm" href="#" role="button" data-bs-toggle="modal" data-bs-target="#editModal">
+                                                    <i class="fas fa-edit"></i>
+                                                </a>
+                                                <a class="btn btn-danger btn-sm" href="#" role="button" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                                                    <i class="fas fa-trash"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Kerusakan Jalan</td>
+                                            <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus aut enim consequatur quis iusto sequi facilis unde ad sint nemo.</td>
+                                            <td>Asep Amin</td>
+                                            <td>
+                                                <a class="btn btn-success btn-sm" href="#" role="button" data-bs-toggle="modal" data-bs-target="#showModal">
+                                                    <i class="fas fa-eye"></i>
+                                                </a>
+                                                <a class="btn btn-warning btn-sm" href="#" role="button" data-bs-toggle="modal" data-bs-target="#editModal">
+                                                    <i class="fas fa-edit"></i>
+                                                </a>
+                                                <a class="btn btn-danger btn-sm" href="#" role="button" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                                                    <i class="fas fa-trash"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Kerusakan Jalan</td>
+                                            <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus aut enim consequatur quis iusto sequi facilis unde ad sint nemo.</td>
+                                            <td>Asep Amin</td>
+                                            <td>
+                                                <a class="btn btn-success btn-sm" href="#" role="button" data-bs-toggle="modal" data-bs-target="#showModal">
+                                                    <i class="fas fa-eye"></i>
+                                                </a>
+                                                <a class="btn btn-warning btn-sm" href="#" role="button" data-bs-toggle="modal" data-bs-target="#editModal">
+                                                    <i class="fas fa-edit"></i>
+                                                </a>
+                                                <a class="btn btn-danger btn-sm" href="#" role="button" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                                                    <i class="fas fa-trash"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Kerusakan Jalan</td>
+                                            <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus aut enim consequatur quis iusto sequi facilis unde ad sint nemo.</td>
+                                            <td>Asep Amin</td>
+                                            <td>
+                                                <a class="btn btn-success btn-sm" href="#" role="button" data-bs-toggle="modal" data-bs-target="#showModal">
+                                                    <i class="fas fa-eye"></i>
+                                                </a>
+                                                <a class="btn btn-warning btn-sm" href="#" role="button" data-bs-toggle="modal" data-bs-target="#editModal">
+                                                    <i class="fas fa-edit"></i>
+                                                </a>
+                                                <a class="btn btn-danger btn-sm" href="#" role="button" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                                                    <i class="fas fa-trash"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Kerusakan Jalan</td>
+                                            <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus aut enim consequatur quis iusto sequi facilis unde ad sint nemo.</td>
+                                            <td>Asep Amin</td>
+                                            <td>
+                                                <a class="btn btn-success btn-sm" href="#" role="button" data-bs-toggle="modal" data-bs-target="#showModal">
+                                                    <i class="fas fa-eye"></i>
+                                                </a>
+                                                <a class="btn btn-warning btn-sm" href="#" role="button" data-bs-toggle="modal" data-bs-target="#editModal">
+                                                    <i class="fas fa-edit"></i>
+                                                </a>
+                                                <a class="btn btn-danger btn-sm" href="#" role="button" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                                                    <i class="fas fa-trash"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Kerusakan Jalan</td>
+                                            <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus aut enim consequatur quis iusto sequi facilis unde ad sint nemo.</td>
+                                            <td>Asep Amin</td>
+                                            <td>
+                                                <a class="btn btn-success btn-sm" href="#" role="button" data-bs-toggle="modal" data-bs-target="#showModal">
+                                                    <i class="fas fa-eye"></i>
+                                                </a>
+                                                <a class="btn btn-warning btn-sm" href="#" role="button" data-bs-toggle="modal" data-bs-target="#editModal">
+                                                    <i class="fas fa-edit"></i>
+                                                </a>
+                                                <a class="btn btn-danger btn-sm" href="#" role="button" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                                                    <i class="fas fa-trash"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Kerusakan Jalan</td>
+                                            <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus aut enim consequatur quis iusto sequi facilis unde ad sint nemo.</td>
+                                            <td>Asep Amin</td>
+                                            <td>
+                                                <a class="btn btn-success btn-sm" href="#" role="button" data-bs-toggle="modal" data-bs-target="#showModal">
+                                                    <i class="fas fa-eye"></i>
+                                                </a>
+                                                <a class="btn btn-warning btn-sm" href="#" role="button" data-bs-toggle="modal" data-bs-target="#editModal">
+                                                    <i class="fas fa-edit"></i>
+                                                </a>
+                                                <a class="btn btn-danger btn-sm" href="#" role="button" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                                                    <i class="fas fa-trash"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Kerusakan Jalan</td>
+                                            <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus aut enim consequatur quis iusto sequi facilis unde ad sint nemo.</td>
+                                            <td>Asep Amin</td>
+                                            <td>
+                                                <a class="btn btn-success btn-sm" href="#" role="button" data-bs-toggle="modal" data-bs-target="#showModal">
+                                                    <i class="fas fa-eye"></i>
+                                                </a>
+                                                <a class="btn btn-warning btn-sm" href="#" role="button" data-bs-toggle="modal" data-bs-target="#editModal">
+                                                    <i class="fas fa-edit"></i>
+                                                </a>
+                                                <a class="btn btn-danger btn-sm" href="#" role="button" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                                                    <i class="fas fa-trash"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Kerusakan Jalan</td>
+                                            <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus aut enim consequatur quis iusto sequi facilis unde ad sint nemo.</td>
+                                            <td>Asep Amin</td>
+                                            <td>
+                                                <a class="btn btn-success btn-sm" href="#" role="button" data-bs-toggle="modal" data-bs-target="#showModal">
+                                                    <i class="fas fa-eye"></i>
+                                                </a>
+                                                <a class="btn btn-warning btn-sm" href="#" role="button" data-bs-toggle="modal" data-bs-target="#editModal">
+                                                    <i class="fas fa-edit"></i>
+                                                </a>
+                                                <a class="btn btn-danger btn-sm" href="#" role="button" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                                                    <i class="fas fa-trash"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Kerusakan Jalan</td>
+                                            <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus aut enim consequatur quis iusto sequi facilis unde ad sint nemo.</td>
+                                            <td>Asep Amin</td>
+                                            <td>
+                                                <a class="btn btn-success btn-sm" href="#" role="button" data-bs-toggle="modal" data-bs-target="#showModal">
+                                                    <i class="fas fa-eye"></i>
+                                                </a>
+                                                <a class="btn btn-warning btn-sm" href="#" role="button" data-bs-toggle="modal" data-bs-target="#editModal">
+                                                    <i class="fas fa-edit"></i>
+                                                </a>
+                                                <a class="btn btn-danger btn-sm" href="#" role="button" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                                                    <i class="fas fa-trash"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Kerusakan Jalan</td>
+                                            <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus aut enim consequatur quis iusto sequi facilis unde ad sint nemo.</td>
+                                            <td>Asep Amin</td>
+                                            <td>
+                                                <a class="btn btn-success btn-sm" href="#" role="button" data-bs-toggle="modal" data-bs-target="#showModal">
+                                                    <i class="fas fa-eye"></i>
+                                                </a>
+                                                <a class="btn btn-warning btn-sm" href="#" role="button" data-bs-toggle="modal" data-bs-target="#editModal">
+                                                    <i class="fas fa-edit"></i>
+                                                </a>
+                                                <a class="btn btn-danger btn-sm" href="#" role="button" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                                                    <i class="fas fa-trash"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Kerusakan Jalan</td>
+                                            <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus aut enim consequatur quis iusto sequi facilis unde ad sint nemo.</td>
+                                            <td>Asep Amin</td>
+                                            <td>
+                                                <a class="btn btn-success btn-sm" href="#" role="button" data-bs-toggle="modal" data-bs-target="#showModal">
+                                                    <i class="fas fa-eye"></i>
+                                                </a>
+                                                <a class="btn btn-warning btn-sm" href="#" role="button" data-bs-toggle="modal" data-bs-target="#editModal">
+                                                    <i class="fas fa-edit"></i>
+                                                </a>
+                                                <a class="btn btn-danger btn-sm" href="#" role="button" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                                                    <i class="fas fa-trash"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Kerusakan Jalan</td>
+                                            <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus aut enim consequatur quis iusto sequi facilis unde ad sint nemo.</td>
+                                            <td>Asep Amin</td>
+                                            <td>
+                                                <a class="btn btn-success btn-sm" href="#" role="button" data-bs-toggle="modal" data-bs-target="#showModal">
+                                                    <i class="fas fa-eye"></i>
+                                                </a>
+                                                <a class="btn btn-warning btn-sm" href="#" role="button" data-bs-toggle="modal" data-bs-target="#editModal">
+                                                    <i class="fas fa-edit"></i>
+                                                </a>
+                                                <a class="btn btn-danger btn-sm" href="#" role="button" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                                                    <i class="fas fa-trash"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Kerusakan Jalan</td>
+                                            <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus aut enim consequatur quis iusto sequi facilis unde ad sint nemo.</td>
+                                            <td>Asep Amin</td>
+                                            <td>
+                                                <a class="btn btn-success btn-sm" href="#" role="button" data-bs-toggle="modal" data-bs-target="#showModal">
+                                                    <i class="fas fa-eye"></i>
+                                                </a>
+                                                <a class="btn btn-warning btn-sm" href="#" role="button" data-bs-toggle="modal" data-bs-target="#editModal">
+                                                    <i class="fas fa-edit"></i>
+                                                </a>
+                                                <a class="btn btn-danger btn-sm" href="#" role="button" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                                                    <i class="fas fa-trash"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+                <footer class="py-4 mt-auto bg-dark">
+                    <div class="container-fluid px-4">
+                        <div class="d-flex align-items-center justify-content-center small">
+                            <div class="text-muted">Desa Watesprojo Admin 2022</div>
+                        </div>
+                    </div>
+                </footer>
+                <div class="modal fade" id="addModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="addModalLabel">Tambah Data Pengajuan KTP</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="">
+                                <div class="mb-3">
+                                    <label for="exampleFormControlInput1" class="form-label">Judul</label>
+                                    <input type="name" class="form-control" id="exampleFormControlInput1" placeholder="Udin Sedunia">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleFormControlInput1" class="form-label">Deskripsi</label>
+                                    <input type="name" class="form-control" id="exampleFormControlInput1" placeholder="Isi Keluhan Anda">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleFormControlInput1" class="form-label">Nama Pelapor</label>
+                                    <input type="name" class="form-control" id="exampleFormControlInput1" placeholder="Udin Sedunia">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batalkan</button>
+                          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Simpan data</button>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="showModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="showModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="showModalLabel">Detail Pengajuan KTP</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <ol class="list-group list-group-numbered">
+                                <li class="list-group-item d-flex justify-content-between align-items-start">
+                                  <div class="ms-2 me-auto">
+                                    <div class="fw-bold">Judul</div>
+                                    Kerusakan Jalan
+                                  </div>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-start">
+                                  <div class="ms-2 me-auto">
+                                    <div class="fw-bold">Deskripsi</div>
+                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veniam odio ratione maxime pariatur ad blanditiis sequi hic. Et ducimus cum non, labore aliquam sapiente voluptas.
+                                  </div>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-start">
+                                    <div class="ms-2 me-auto">
+                                      <div class="fw-bold">Nama Pelapor</div>
+                                      Asep Amin
+                                    </div>
+                                </li>
+                              </ol>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="editModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="editModalLabel">Edit Pengajuan KTP</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="">
+                                <div class="mb-3">
+                                    <label for="exampleFormControlInput1" class="form-label">Judul</label>
+                                    <input type="name" class="form-control" id="exampleFormControlInput1" placeholder="Udin Sedunia" value="Kerusakan Jalan">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleFormControlInput1" class="form-label">Deskripsi</label>
+                                    <input type="name" class="form-control" id="exampleFormControlInput1" placeholder="Udin Sedunia" value="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veniam odio ratione maxime pariatur ad blanditiis sequi hic. Et ducimus cum non, labore aliquam sapiente voluptas.">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleFormControlInput1" class="form-label">Nama Pelapor</label>
+                                    <input type="name" class="form-control" id="exampleFormControlInput1" placeholder="Udin Sedunia" value="Asep Amin">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batalkan</button>
+                          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Simpan data</button>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="deleteModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="deleteModalLabel">Hapus Data Pengajuan KTP</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="">
+                                <ol class="list-group list-group-numbered">
+                                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                                      <div class="ms-2 me-auto">
+                                        <div class="fw-bold">Judul</div>
+                                        Kerusakan Jalan
+                                      </div>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                                      <div class="ms-2 me-auto">
+                                        <div class="fw-bold">Deskripsi</div>
+                                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veniam odio ratione maxime pariatur ad blanditiis sequi hic. Et ducimus cum non, labore aliquam sapiente voluptas.
+                                      </div>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                                        <div class="ms-2 me-auto">
+                                          <div class="fw-bold">Nama Pelapor</div>
+                                          Asep Amin
+                                        </div>
+                                    </li>
+                                </ol>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batalkan</button>
+                          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Hapus data</button>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="/js/scripts.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+        <script src="/assets/demo/chart-area-demo.js"></script>
+        <script src="/assets/demo/chart-bar-demo.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+        <script src="/js/datatables-simple-demo.js"></script>
+    </body>
+</html>
